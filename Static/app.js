@@ -25,18 +25,46 @@ $(`.pets`).click(() => {
     })
 })
 
-// $(`.addUser`).click(() => {
-//     $(".petsContainer").empty();
-//     $.get("/api/pets", (result) => {
-//         for(i = 0; i < result.length; i++) {
-//             let{name, age, type, color } = result[i];
-//             $(`<h2>Pet Name: ${name}<H2>`).appendTo(".petsContainer");
-//             $(`<h5>Age: ${age}<h5>`).appendTo(".petsContainer");
-//             $(`<h5>Type: ${type}<h5>`).appendTo(".petsContainer");
-//             $(`<h5>Color: ${color}<h5>`).appendTo(".petsContainer");
-//         }
-//     })
-// })
+$(`.addUser`).click((event) => {
+    event.preventDefault();
+    let name = $('#New-Owner-Name').val();
+    let address = $('#New-Owner-Address').val();
+    let phone_number = $('#New-Owner-Phone-Number').val();
+    let newOwner = {name, address, phone_number};
+        fetch('/api/owner', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+        body: JSON.stringify(newOwner),
+        })
+    .then((response) => response.json())
+    .then((data) => console.log('Success:', data));
+});
+
+
+$(`.addPet`).click((event) => {
+        event.preventDefault();
+        let owner_id = $('#New-Pet-Owner').val();
+        let name = $('#New-Pet-Name').val();
+        let age = $('#New-Pet-Age').val();
+        let type = $('#New-Pet-Type').val();
+        let color = $('#New-Pet-Color').val();
+        let newPet = {owner_id, name, age, type, color};
+            fetch('/api/pets', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'cors',
+            body: JSON.stringify(newPet),
+            })
+        .then((response) => response.json())
+        .then((data) => console.log('Success:', data));
+    });
+
+
 
 $(`.clear`).click(() => {
     $('.ownersContainer').empty();

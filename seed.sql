@@ -19,3 +19,4 @@ INSERT INTO pets (owner_id, name, age, type, color) VALUES (6, 'Flash', 6, 'Turt
 INSERT INTO pets (owner_id, name, age, type, color) VALUES (7, 'Garfield', 2, 'Cat', 'Orange');
 
 
+-- SELECT owner.name FROM owner JOIN pets WHERE pets.owner_id = true

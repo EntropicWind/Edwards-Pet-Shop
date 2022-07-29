@@ -101,26 +101,26 @@ app.post("/api/owner", (req,res,next) => {
         `INSERT INTO owner (name, address, phone_number) VALUES ($1, $2, $3)RETURNING *;`,
         [name, address, phone_number]
         ).then((data) => {
-            res.status(200).send(data.rows[0]);
+            res.status(201).send(data.rows[0]);
         })
         // .catch(next);
     }
 });
 
-// app.post("/api/pets", (req,res,next) => {
-//     const { name, age, type, color } = req.body;
-//     if(!name || !age || !type || !color) {
-//         res.sendStatus(400)
-//     }else{
-//     pool.query(
-//         `INSERT INTO pets (name, age, type, color) VALUES ($1, $2, $3, $4)RETURNING *;`,
-//         [name, age, type, color]
-//         ).then((data) => {
-//             res.status(200).send(data.rows[0]);
-//         })
-//         // .catch(next);
-//     }
-// });
+app.post("/api/pets", (req,res,next) => {
+    const { owner_id, name, age, type, color } = req.body;
+    if(!owner_id || !name || !age || !type || !color) {
+        res.sendStatus(400)
+    }else{
+    pool.query(
+        `INSERT INTO pets (owner_id, name, age, type, color) VALUES ($1, $2, $3, $4, $5)RETURNING *;`,
+        [owner_id, name, age, type, color]
+        ).then((data) => {
+            res.status(201).send(data.rows[0]);
+        })
+        // .catch(next);
+    }
+});
 
 // // PATCH //
 //     app.patch("/api/owner/:id", (req,res,next) => {

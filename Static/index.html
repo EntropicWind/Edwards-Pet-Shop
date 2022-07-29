@@ -9,13 +9,30 @@
     <title>My First Full Stack</title>
 </head>
 <body>
-   Pet Shop 2
-   <br>
-   <br>
-    <button class="owners">Owners</button><button class="clear">clear</button>
+   <h1><u>Edward's Super Awesome Petshop</u></h1>
+    <h5>Click "Owners" to see current owners</h5>
+    <button class="owners">Owners</button><button class="clear">Clear</button>
     <div class="ownersContainer"></div>
-    <button class="pets">Pets</button><button class="clear-pets">clear</button>
+    <h5>Click "Pets" to see current Pets</h5>
+    <button class="pets">Pets</button><button class="clear-pets">Clear</button>
     <div class="petsContainer"></div>
-    <button class="addUser">Add User</button>
+    <p>Insert New Owner Information in the boxes below</p><button type="submit" class="addUser">Add New User</button> 
+    
+    <form id="Add-new-Owner"> 
+            <input id= "New-Owner-Name" type= "text" name= "add" placeholder="Owner Name">
+            <input id= "New-Owner-Address" type= "text" name= "add" placeholder="Owner Address">
+            <input id= "New-Owner-Phone-Number" type= "text" name= "add" placeholder="Owner Phone Number">
+        <!-- <p>Please enter some text below:</p> -->
+    </form>
+    <p>Insert New Pet Information in the boxes below</p>
+    <button type="submit" class="addPet">Add New Pet</button> 
+    <form id="Add-new-Pet"> 
+        <input id= "New-Pet-Owner" type= "text" name= "add" placeholder="Pet Owner Id">
+        <input id= "New-Pet-Name" type= "text" name= "add" placeholder="Pet Name">
+        <input id= "New-Pet-Age" type= "text" name= "add" placeholder="Pet Age">
+        <input id= "New-Pet-Type" type= "text" name= "add" placeholder="Pet Type">
+        <input id= "New-Pet-Color" type= "text" name= "add" placeholder="Pet Color">
+    <!-- <p>Please enter some text below:</p> -->
+</form>
 </body>
 </html>
