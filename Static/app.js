@@ -7,7 +7,7 @@ $(`.owners`).click(() => {
             let{name, address, phone_number } = result[i];
             $(`<h2>Owner: ${name}<h2>`).appendTo(".ownersContainer");
             $(`<h5>Address: ${address}<h5>`).appendTo(".ownersContainer");
-            $(`<h5>Address: ${phone_number}<h5>`).appendTo(".ownersContainer");
+            $(`<h5>Phone Number: ${phone_number}<h5>`).appendTo(".ownersContainer");
         }
     })
 })
@@ -15,8 +15,9 @@ $(`.pets`).click(() => {
     $(".petsContainer").empty();
     $.get("/api/pets", (result) => {
         for(i = 0; i < result.length; i++) {
-            let{name, age, type, color } = result[i];
+            let{name, owner_id, age, type, color } = result[i];
             $(`<h2>Pet Name: ${name}<H2>`).appendTo(".petsContainer");
+            $(`<h3>Owner: ${owner_id}<H3>`).appendTo(".petsContainer");
             $(`<h5>Age: ${age}<h5>`).appendTo(".petsContainer");
             $(`<h5>Type: ${type}<h5>`).appendTo(".petsContainer");
             $(`<h5>Color: ${color}<h5>`).appendTo(".petsContainer");
@@ -24,6 +25,18 @@ $(`.pets`).click(() => {
     })
 })
 
+// $(`.addUser`).click(() => {
+//     $(".petsContainer").empty();
+//     $.get("/api/pets", (result) => {
+//         for(i = 0; i < result.length; i++) {
+//             let{name, age, type, color } = result[i];
+//             $(`<h2>Pet Name: ${name}<H2>`).appendTo(".petsContainer");
+//             $(`<h5>Age: ${age}<h5>`).appendTo(".petsContainer");
+//             $(`<h5>Type: ${type}<h5>`).appendTo(".petsContainer");
+//             $(`<h5>Color: ${color}<h5>`).appendTo(".petsContainer");
+//         }
+//     })
+// })
 
 $(`.clear`).click(() => {
     $('.ownersContainer').empty();

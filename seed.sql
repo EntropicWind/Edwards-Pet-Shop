@@ -7,7 +7,7 @@ INSERT INTO owner (name, address, phone_number) VALUES ('Matt', '789 Sudden St',
 INSERT INTO owner (name, address, phone_number) VALUES ('Zach', '987 Breakfast Av', '910-334-0909');
 INSERT INTO owner (name, address, phone_number) VALUES ('Martha', '654 Peppers dr', '224-776-0000');
 INSERT INTO owner (name, address, phone_number) VALUES ('Justin', '321 poptart dr', '765-345-0192');
-INSERT INTO owner (name, address, phone_number) VALUES ('Mike', '135 Computer st', '567-293-9076');
+INSERT INTO owner (name, address, phone_number) VALUES ('Lisa', '135 Mookie st', '567-293-9076');
 
 INSERT INTO pets (owner_id, name, age, type, color) VALUES (1, 'Rusty', 3, 'Dog', 'Black');
 INSERT INTO pets (owner_id, name, age, type, color) VALUES (1, 'Pickles', 1, 'Cat', 'Black');

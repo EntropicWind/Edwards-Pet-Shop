@@ -4,13 +4,20 @@
 import express from "express"
 import pg from "pg";
 import cors from "cors";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const pool = new pg.Pool({
-    database: "petshop2"
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
+
 
 app.use(express.json());
 app.use(express.static('Static'));
@@ -74,20 +81,20 @@ app.get('/api/owner/:id', (req, res, next) => {
 //   });
 
 // // POST //
-// app.post("/api/owner", (req,res,next) => {
-//     const { name, address, phone_number } = req.body;
-//     if(!name || !address || !phone_number) {
-//         res.sendStatus(400)
-//     }else{
-//     pool.query(
-//         `INSERT INTO owner (name, address, phone_number) VALUES ($1, $2, $3)RETURNING *;`,
-//         [name, address, phone_number]
-//         ).then((data) => {
-//             res.status(200).send(data.rows[0]);
-//         })
-//         // .catch(next);
-//     }
-// });
+app.post("/api/owner", (req,res,next) => {
+    const { name, address, phone_number } = req.body;
+    if(!name || !address || !phone_number) {
+        res.sendStatus(400)
+    }else{
+    pool.query(
+        `INSERT INTO owner (name, address, phone_number) VALUES ($1, $2, $3)RETURNING *;`,
+        [name, address, phone_number]
+        ).then((data) => {
+            res.status(200).send(data.rows[0]);
+        })
+        // .catch(next);
+    }
+});
 
 // app.post("/api/pets", (req,res,next) => {
 //     const { name, age, type, color } = req.body;
