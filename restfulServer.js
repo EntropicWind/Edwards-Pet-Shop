@@ -8,11 +8,22 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// const pool = new pg.Pool({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: {
+//         rejectUnauthorized: false
+//     }
+// });
+
 const pool = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
+    ...(process.env.NODE_ENV === "production" 
+    ? {
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
+    : {}),
 });
 
 const app = express();
