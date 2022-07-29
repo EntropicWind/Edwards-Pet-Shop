@@ -1,0 +1,26 @@
+# Full Stack Single Page Project: Creating the back-end and front-end to send request and respond to a single webpage
+
+This project required me to:
+
+- build out a database in PSQL and fill it with information,
+- create a server and server js,
+- create the js using event listeners,
+-  make an AJAX call to a personally built database,
+- jQuery manipulation based on user interaction with the app,
+- and CSS to make it look good
+
+
+
+Please see ERD and client-server-database relationship image here:
+![Edward_ERD](https://app.diagrams.net/#LFullstack%20single%20page%20)
+
+## Creating the Idea for the Project
+
+I decided to go with the pet store theme to keep things simple. I created my own database and populated it with informaton and a server to do all the talking. 
+
+## What This Project Does
+
+For this project, I wanted to incorporate the full stack development on a single webpage. On the page you click a button to show Owners, it makes a requst and then populates the data. You click clear and it clears it out. The Same thing applies to the Pets button. 
+
+To make this happen, I used the self created database along with my server to satisfy the need for request/response. 
+
